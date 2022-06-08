@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "825398370248",
+    "project_id": "mynotes-eladial",
+    "storage_bucket": "mynotes-eladial.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:825398370248:android:f7e4971a2d5a09e5d0aafd",
+        "android_client_info": {
+          "package_name": "com.eladial.mynotes"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "825398370248-abemilt12unpeauudl7ve3bmtpdig1kv.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAQFLnbucUfGG8U6lE2LHyAovk7KnTl9qg"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "825398370248-abemilt12unpeauudl7ve3bmtpdig1kv.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
