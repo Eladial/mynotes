@@ -1,5 +1,6 @@
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
+import 'dart:developer' as devtools show log;
 
 class LoginView extends StatefulWidget {
   const LoginView({Key? key}) : super(key: key);
@@ -37,8 +38,9 @@ class _LoginViewState extends State<LoginView> {
             enableSuggestions: false,
             autocorrect: false,
             keyboardType: TextInputType.emailAddress,
-            decoration:
-                const InputDecoration(hintText: 'Enter your email here'),
+            decoration: const InputDecoration(
+              hintText: 'Enter your email here',
+            ),
           ),
           TextField(
             controller: _password,
@@ -53,27 +55,31 @@ class _LoginViewState extends State<LoginView> {
               final email = _email.text;
               final password = _password.text;
               try {
-                final userCredential = await FirebaseAuth.instance
-                    .signInWithEmailAndPassword(
-                        email: email, password: password);
-                print(userCredential);
+                await FirebaseAuth.instance.signInWithEmailAndPassword(
+                  email: email,
+                  password: password,
+                );
+                Navigator.of(context).pushNamedAndRemoveUntil(
+                  '/notes/',
+                  (route) => false,
+                );
               } on FirebaseAuthException catch (e) {
                 switch (e.code) {
                   case 'invalid-email':
-                    print('Invalid Email');
+                    devtools.log('Invalid Email');
                     break;
                   case 'user-disabled':
-                    print('User disabled');
+                    devtools.log('User disabled');
                     break;
                   case 'user-not-found':
-                    print('User not found');
+                    devtools.log('User not found');
                     break;
                   case 'wrong-password':
-                    print('Wrong password');
+                    devtools.log('Wrong password');
                     break;
                   default:
-                    print('Something wrong');
-                    print(e);
+                    devtools.log('Something wrong');
+                    devtools.log(e.toString());
                 }
               }
             },
